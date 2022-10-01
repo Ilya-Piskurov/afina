@@ -71,4 +71,10 @@ public class BorderPaneController {
         alert.setContentText("Field 'Key' or 'Value' is empty!");
         alert.showAndWait();
     }
+
+    public void debugPrintItems() {
+        for (String item: hashMap.keySet()) {
+            System.out.println(hashMap.get(item));
+        }
+    }
 }
