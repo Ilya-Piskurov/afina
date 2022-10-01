@@ -9,10 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="409257e8-22c3-40ab-9003-42aed2193bf1" name="Default Changelist" comment="Add main class.">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/AfinaGitHub.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/AfinaGitHub_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/AfinaGitHub_jar.xml" afterDir="false" />
+    <list default="true" id="409257e8-22c3-40ab-9003-42aed2193bf1" name="Default Changelist" comment="Add MANIFEST.MF">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +91,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664633427913</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add MANIFEST.MF">
+      <created>1664634294001</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1664634294001</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -110,6 +116,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Complete UI part." />
     <MESSAGE value="Add main class." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add main class." />
+    <MESSAGE value="Add MANIFEST.MF" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add MANIFEST.MF" />
   </component>
 </project>
