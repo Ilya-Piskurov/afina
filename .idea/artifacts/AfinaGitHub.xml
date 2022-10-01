@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jpackage" name="AfinaGitHub">
+    <output-path>$PROJECT_DIR$/out/artifacts/AfinaGitHub</output-path>
+    <root id="root">
+      <element id="archive" name="AfinaGitHub.jar">
+        <element id="module-output" name="AfinaGitHub" />
+      </element>
+    </root>
+  </artifact>
+</component>
