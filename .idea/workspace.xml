@@ -10,8 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="409257e8-22c3-40ab-9003-42aed2193bf1" name="Default Changelist" comment="Add MANIFEST.MF">
+      <change afterPath="$PROJECT_DIR$/src/main/java/javafxtest/FXCircle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javafxtest/HelloApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javafxtest/MainStart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javafxtest/TestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javafxtest/TestFXNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/test_view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +33,15 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2FSEJi1pevytL7qH1892Hckwrq8" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -35,17 +49,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Programming/Java_projects/afina/src/main/resources"
+  }
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Programming\Java_projects\afina\src\main\resources" />
+      <recent name="D:\Programming\Java_projects\afina\src\main\java" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\SourceCode\JavaOOP\AfinaProject\src\main\resources" />
       <recent name="D:\SourceCode\JavaOOP\AfinaProject\src\main\java\afina" />
@@ -54,7 +68,20 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.MainStart">
+    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javafxtest.HelloApplication" />
+      <module name="AfinaProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="javafxtest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="AfinaGitHub" />
@@ -62,8 +89,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MainStart" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javafxtest.MainStart" />
+      <module name="AfinaProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="javafxtest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MainStart" />
+        <item itemvalue="Application.HelloApplication" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -76,6 +118,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1664477014840</updated>
+      <workItem from="1664645379788" duration="805000" />
+      <workItem from="1664648990019" duration="1314000" />
+      <workItem from="1664654771985" duration="37000" />
+      <workItem from="1664710571564" duration="681000" />
+      <workItem from="1665780069067" duration="181000" />
+      <workItem from="1665928066917" duration="3436000" />
+      <workItem from="1665943604498" duration="1421000" />
+      <workItem from="1665947093410" duration="46000" />
+      <workItem from="1666463241312" duration="543000" />
+      <workItem from="1666476593027" duration="310000" />
     </task>
     <task id="LOCAL-00001" summary="Complete UI part.">
       <created>1664565324937</created>
@@ -101,6 +153,9 @@
     <option name="localTasksCounter" value="4" />
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -111,7 +166,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Complete UI part." />
