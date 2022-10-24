@@ -1,5 +1,3 @@
-package javafxtest;
-
 import javafx.scene.control.Label;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;

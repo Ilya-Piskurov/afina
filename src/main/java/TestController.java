@@ -1,5 +1,3 @@
-package javafxtest;
-
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
