@@ -2,22 +2,25 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="AfinaGitHub" />
+      <artifact name="AfinaGitHub:jar" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="409257e8-22c3-40ab-9003-42aed2193bf1" name="Default Changelist" comment="ViewTest">
+    <list default="true" id="409257e8-22c3-40ab-9003-42aed2193bf1" name="Default Changelist" comment="Change InputField font sizes">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BorderPaneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BorderPaneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HelloApplication.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javafxtest/FXCircle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javafxtest/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javafxtest/MainStart.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javafxtest/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javafxtest/TestFXNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TestFXNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test_view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TestController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TestFXNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FXHashMapNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/afina.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/afina.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test_view.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +32,7 @@
       <list>
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="Record" />
       </list>
     </option>
   </component>
@@ -52,7 +56,10 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Programming/Java_projects/afina/src/main/resources&quot;
+    &quot;last_opened_file_path&quot;: &quot;D:/Programming/Java_projects/afina/src/main/resources&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -86,7 +93,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="18" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="AfinaProject" />
+      <module name="AfinaGitHub" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

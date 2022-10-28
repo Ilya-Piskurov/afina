@@ -5,31 +5,31 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.shape.Line;
 
-public class TestFXNode extends Pane {
+public class FXHashMapNode extends Pane {
+
     GridPane grid;
     Label key;
     Label value;
     Line line;
 
-    public TestFXNode() {
+    public FXHashMapNode() {
         super();
-        grid = new GridPane();
-        line = new Line();
-        key = new Label();
+        grid  = new GridPane();
+        line  = new Line();
+        key   = new Label();
         value = new Label();
 
-
         grid.setGridLinesVisible(true);
-        grid.getColumnConstraints().add(new ColumnConstraints(60));
-        grid.getColumnConstraints().add(new ColumnConstraints(60));
-        grid.getRowConstraints().add(new RowConstraints(30));
+        grid.getColumnConstraints().add(new ColumnConstraints(100));
+        grid.getColumnConstraints().add(new ColumnConstraints(100));
+        grid.getRowConstraints().add(new RowConstraints(70));
 
-        grid.setStyle("-fx-background-color: #A0A0A0");
+        grid.setStyle("-fx-background-color: #ebcb8b; -fx-font-size: 18");
         grid.add(key, 0, 0);
         grid.add(value, 1, 0);
 
         getChildren().addAll(line, grid);
-        setMaxSize(60, 60);
+        setMaxSize(100, 100);
     }
 
     public void resetLine(){

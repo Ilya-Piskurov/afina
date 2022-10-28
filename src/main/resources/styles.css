@@ -1,4 +1,4 @@
-.left-panel {
+.left-pane {
     -fx-background-color: #3B4252
 }
 
@@ -8,4 +8,20 @@
 
 .textbox {
     -fx-background-color: #D8DEE9
+}
+
+.view-pane {
+    -fx-background-color: #D8DEE9
+}
+
+.save-button {
+    -fx-background-color: #d08770;
+}
+
+.load-button {
+    -fx-background-color: #a3be8c;
+}
+
+.clear-button {
+    -fx-background-color: #b48ead;
 }
