@@ -1,0 +1,70 @@
+@startuml
+
+class Main {
+    +void main()
+}
+
+class Afina {
+    -Resource afina.fxml
+    +void start(Stage)
+    +void main()
+}
+
+class Vec2 {
+    +double x
+    +double y
+}
+
+class FXHashMapNode {
+    +GridPane grid;
+    +Label key;
+    +Label value;
+    +Line line;
+
+    +public FXHashMapNode()
+    +public void resetLine()
+}
+
+class BorderPaneController {
+    +Button putButton
+    +Button removeButton
+    +Button replaceButton
+    +Button clearButton
+    +Button saveButton
+    +Button loadButton
+
+    +TextField putKey
+    +TextField putValue
+    +TextField removeKey
+    +TextField replaceKey
+    +TextField replaceValue
+    +Pane viewPane
+    +FXHashMapNode pickedNode
+    +Vec2 mousePreviousPos
+    +Vec2 globalScale
+    +LinkedHashMap<String, String> hashMap
+    +LinkedList<FXHashMapNode> mapList
+
+    +void initialize()
+    +void handleMouseClickedPutButton(MouseEvent mouseEvent)
+    +void handleMouseClickedRemoveButton(MouseEvent)
+    +void handleMouseClickedReplaceButton(MouseEvent)
+    +void handleMouseClickedClearButton(MouseEvent)
+    +void handleMouseClickedSaveButton(MouseEvent)
+    +void handleMouseClickedLoadButton(MouseEvent)
+    -void showErrorDialogIfFieldsAreEmpty()
+    -void bindNodes(FXHashMapNode, FXHashMapNode)
+    -void moveNode(FXHashMapNode, double, double)
+    +void onViewPaneMouseMoved(MouseEvent)
+    +void onViewPaneMousePressed(MouseEvent)
+    +void onViewPaneMouseReleased(MouseEvent)
+    +void onViewPaneMouseScroll(ScrollEvent)
+}
+
+Main --> "uses" Afina
+Afina --> "uses" BorderPaneController
+BorderPaneController --> "uses" FXHashMapNode
+BorderPaneController --> "uses" Vec2
+
+
+@enduml
