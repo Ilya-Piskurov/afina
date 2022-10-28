@@ -184,8 +184,8 @@ public class BorderPaneController {
             Scanner saveFile = new Scanner(new FileReader("saved.txt"));
 
             while (saveFile.hasNext()) {
-                String key   = Integer.toString(saveFile.nextInt());
-                String value = Integer.toString(saveFile.nextInt());
+                String key   = saveFile.next();
+                String value = saveFile.next();
                 hashMap.put(key, value);
 
                 FXHashMapNode newNode = new FXHashMapNode();
