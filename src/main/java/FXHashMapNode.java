@@ -7,10 +7,10 @@ import javafx.scene.shape.Line;
 
 public class FXHashMapNode extends Pane {
 
-    GridPane grid;
-    Label key;
-    Label value;
-    Line line;
+    public GridPane grid;
+    public Label key;
+    public Label value;
+    public Line line;
 
     public FXHashMapNode() {
         super();

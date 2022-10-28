@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 public class Afina extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("afina.fxml"));
         primaryStage.getIcons().add(new Image(String.valueOf(getClass().getResource("icon.png"))));
         primaryStage.setTitle("Afina");
