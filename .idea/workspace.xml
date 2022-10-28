@@ -9,8 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="409257e8-22c3-40ab-9003-42aed2193bf1" name="Default Changelist" comment="Скерстив наші проекти. Треба виправляти баги.">
-      <change beforePath="$PROJECT_DIR$/src/main/java/BorderPaneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BorderPaneController.java" afterDir="false" />
+    <list default="true" id="409257e8-22c3-40ab-9003-42aed2193bf1" name="Default Changelist" comment="Виправив завантаження.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666970008345</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Виправив завантаження.">
+      <created>1666970476780</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1666970476780</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,6 +200,7 @@
     <MESSAGE value="Add MANIFEST.MF" />
     <MESSAGE value="ViewTest" />
     <MESSAGE value="Скерстив наші проекти. Треба виправляти баги." />
-    <option name="LAST_COMMIT_MESSAGE" value="Скерстив наші проекти. Треба виправляти баги." />
+    <MESSAGE value="Виправив завантаження." />
+    <option name="LAST_COMMIT_MESSAGE" value="Виправив завантаження." />
   </component>
 </project>

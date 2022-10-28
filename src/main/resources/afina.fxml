@@ -9,42 +9,42 @@
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BorderPaneController">
    <left>
       <Pane prefHeight="600.0" prefWidth="414.0" styleClass="left-pane" stylesheets="@styles.css" BorderPane.alignment="CENTER">
-         <Button fx:id="putButton" layoutX="30.0" layoutY="101.0" mnemonicParsing="false" onMouseClicked="#handleMouseClickedPutButton" prefHeight="50.0" prefWidth="355.0" stylesheets="@styles.css" text="PUT">
+         <Button fx:id="putButton" layoutX="30.0" layoutY="90.0" mnemonicParsing="false" onMouseClicked="#handleMouseClickedPutButton" prefHeight="50.0" prefWidth="355.0" stylesheets="@styles.css" text="PUT">
             <font>
                <Font size="18.0" />
             </font>
          </Button>
-         <TextField fx:id="putKey" layoutX="30.0" layoutY="49.0" prefHeight="25.0" prefWidth="160.0" promptText="KEY" styleClass="textbox" stylesheets="@styles.css">
+         <TextField fx:id="putKey" layoutX="30.0" layoutY="39.0" prefHeight="25.0" prefWidth="160.0" promptText="KEY" styleClass="textbox" stylesheets="@styles.css">
             <font>
                <Font size="18.0" />
             </font>
          </TextField>
-         <TextField fx:id="putValue" layoutX="222.0" layoutY="49.0" prefHeight="40.0" prefWidth="163.0" promptText="VALUE" styleClass="textbox" stylesheets="@styles.css">
+         <TextField fx:id="putValue" layoutX="222.0" layoutY="39.0" prefHeight="40.0" prefWidth="163.0" promptText="VALUE" styleClass="textbox" stylesheets="@styles.css">
             <font>
                <Font size="18.0" />
             </font>
          </TextField>
-         <Button fx:id="removeButton" layoutX="30.0" layoutY="234.0" mnemonicParsing="false" onMouseClicked="#handleMouseClickedRemoveButton" prefHeight="50.0" prefWidth="355.0" text="REMOVE">
+         <Button fx:id="removeButton" layoutX="30.0" layoutY="217.0" mnemonicParsing="false" onMouseClicked="#handleMouseClickedRemoveButton" prefHeight="50.0" prefWidth="355.0" text="REMOVE">
             <font>
                <Font size="18.0" />
             </font>
          </Button>
-         <TextField fx:id="removeKey" layoutX="30.0" layoutY="185.0" prefHeight="40.0" prefWidth="355.0" promptText="KEY" styleClass="textbox" stylesheets="@styles.css">
+         <TextField fx:id="removeKey" layoutX="30.0" layoutY="161.0" prefHeight="40.0" prefWidth="355.0" promptText="KEY" styleClass="textbox" stylesheets="@styles.css">
             <font>
                <Font size="18.0" />
             </font>
          </TextField>
-         <TextField fx:id="replaceKey" layoutX="30.0" layoutY="321.0" prefHeight="25.0" prefWidth="160.0" promptText="KEY" styleClass="textbox" stylesheets="@styles.css">
+         <TextField fx:id="replaceKey" layoutX="31.0" layoutY="288.0" prefHeight="25.0" prefWidth="160.0" promptText="KEY" styleClass="textbox" stylesheets="@styles.css">
             <font>
                <Font size="18.0" />
             </font>
          </TextField>
-         <TextField fx:id="replaceValue" layoutX="222.0" layoutY="321.0" prefHeight="40.0" prefWidth="163.0" promptText="VALUE" styleClass="textbox" stylesheets="@styles.css">
+         <TextField fx:id="replaceValue" layoutX="222.0" layoutY="288.0" prefHeight="40.0" prefWidth="163.0" promptText="VALUE" styleClass="textbox" stylesheets="@styles.css">
             <font>
                <Font size="18.0" />
             </font>
          </TextField>
-         <Button fx:id="replaceButton" layoutX="30.0" layoutY="371.0" mnemonicParsing="false" onMouseClicked="#handleMouseClickedReplaceButton" prefHeight="50.0" prefWidth="355.0" text="REPLACE">
+         <Button fx:id="replaceButton" layoutX="30.0" layoutY="342.0" mnemonicParsing="false" onMouseClicked="#handleMouseClickedReplaceButton" prefHeight="50.0" prefWidth="355.0" text="REPLACE">
             <font>
                <Font size="18.0" />
             </font>
