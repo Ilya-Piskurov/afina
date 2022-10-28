@@ -9,10 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="409257e8-22c3-40ab-9003-42aed2193bf1" name="Default Changelist" comment="Додав місце для чекбоксу">
+    <list default="true" id="409257e8-22c3-40ab-9003-42aed2193bf1" name="Default Changelist" comment="ViewTest">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Afina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Afina.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BorderPaneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BorderPaneController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/FXHashMapNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FXHashMapNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/afina.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/afina.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +88,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="18" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="AfinaGitHub" />
+      <module name="AfinaProject" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

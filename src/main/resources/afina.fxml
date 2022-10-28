@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BorderPaneController">
-   <left>
-      <Pane prefHeight="600.0" prefWidth="414.0" styleClass="left-pane" stylesheets="@styles.css" BorderPane.alignment="CENTER">
+<AnchorPane prefHeight="664.0" prefWidth="895.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BorderPaneController">
+   <children>
+      <Pane prefHeight="600.0" prefWidth="414.0" styleClass="left-pane" stylesheets="@styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <Button fx:id="putButton" layoutX="30.0" layoutY="90.0" mnemonicParsing="false" onMouseClicked="#handleMouseClickedPutButton" prefHeight="50.0" prefWidth="355.0" stylesheets="@styles.css" text="PUT">
             <font>
                <Font size="18.0" />
@@ -64,9 +65,12 @@
                <Font size="18.0" />
             </font>
          </Button>
+         <CheckBox fx:id="accessOrderCheck" layoutX="31.0" layoutY="414.0" mnemonicParsing="false" style="-fx-background-color: #5E81AC;" text="accessOrder">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </CheckBox>
       </Pane>
-   </left>
-   <center>
-      <Pane fx:id="viewPane" onMouseDragged="#onViewPaneMouseDragged" onMouseMoved="#onViewPaneMouseMoved" onMousePressed="#onViewPaneMousePressed" onMouseReleased="#onViewPaneMouseReleased" onScroll="#onViewPaneMouseScroll" prefHeight="600.0" prefWidth="499.0" styleClass="view-pane" stylesheets="@styles.css" BorderPane.alignment="CENTER" />
-   </center>
-</BorderPane>
+      <Pane fx:id="viewPane" onMouseDragged="#onViewPaneMouseDragged" onMouseMoved="#onViewPaneMouseMoved" onMousePressed="#onViewPaneMousePressed" onMouseReleased="#onViewPaneMouseReleased" onScroll="#onViewPaneMouseScroll" prefHeight="600.0" prefWidth="499.0" styleClass="view-pane" stylesheets="@styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="414.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+   </children>
+</AnchorPane>

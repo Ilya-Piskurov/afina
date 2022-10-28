@@ -1,9 +1,11 @@
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
 import java.io.FileNotFoundException;
@@ -29,6 +31,8 @@ public class BorderPaneController {
     public TextField replaceKey;
     public TextField replaceValue;
 
+    public CheckBox accessOrderCheck;
+
     public Pane viewPane;
 
     private FXHashMapNode pickedNode;
@@ -47,6 +51,7 @@ public class BorderPaneController {
         globalScale.x = 1;
         globalScale.y = 1;
         mousePreviousPos = new Vec2();
+        viewPane.toBack();
     }
 
     public void handleMouseClickedPutButton(MouseEvent mouseEvent) {
@@ -63,14 +68,14 @@ public class BorderPaneController {
 
         if (hashMap.get(key) == null) {
             FXHashMapNode newNode = new FXHashMapNode();
-            newNode.key.setText(key);
-            newNode.value.setText(value);
-            newNode.grid.setScaleX(globalScale.x);
-            newNode.grid.setScaleY(globalScale.y);
+            newNode.getKey().setText(key);
+            newNode.getValue().setText(value);
+            newNode.getGrid().setScaleX(globalScale.x);
+            newNode.getGrid().setScaleY(globalScale.y);
 
             if (viewPane.getChildren().size() > 0) {
                 FXHashMapNode prev = mapList.getLast();
-                newNode.setLayoutX(prev.getLayoutX() + (prev.grid.getWidth() + OFFSET) * globalScale.x);
+                newNode.setLayoutX(prev.getLayoutX() + (prev.getGridWidth() + OFFSET) * globalScale.x);
                 newNode.setLayoutY(prev.getLayoutY());
                 bindNodes(prev, newNode);
             } else {
@@ -82,8 +87,11 @@ public class BorderPaneController {
             viewPane.getChildren().add(newNode);
         } else {
             for (FXHashMapNode node: mapList) {
-                if (node.key.getText().equals(key)) {
-                    node.value.setText(value);
+                if (node.getKey().getText().equals(key)) {
+                    if(accessOrderCheck.isSelected()){
+                        moveNodeToMapListBack(node);
+                    }
+                    node.getValue().setText(value);
                     break;
                 }
             }
@@ -109,7 +117,7 @@ public class BorderPaneController {
         }
 
         for (FXHashMapNode node: mapList) {
-            if (node.key.getText().equals(key)) {
+            if (node.getKey().getText().equals(key)) {
                 removeNodeFromMapList(node);
                 viewPane.getChildren().remove(node);
                 break;
@@ -133,8 +141,11 @@ public class BorderPaneController {
             hashMap.replace(key, value);
 
             for (FXHashMapNode node: mapList) {
-                if (node.key.getText().equals(key)) {
-                    node.value.setText(value);
+                if (node.getKey().getText().equals(key)) {
+                    if(accessOrderCheck.isSelected()){
+                        moveNodeToMapListBack(node);
+                    }
+                    node.getValue().setText(value);
                     break;
                 }
             }
@@ -189,14 +200,14 @@ public class BorderPaneController {
                 hashMap.put(key, value);
 
                 FXHashMapNode newNode = new FXHashMapNode();
-                newNode.key.setText(key);
-                newNode.value.setText(value);
-                newNode.grid.setScaleX(globalScale.x);
-                newNode.grid.setScaleY(globalScale.y);
+                newNode.getKey().setText(key);
+                newNode.getValue().setText(value);
+                newNode.getGrid().setScaleX(globalScale.x);
+                newNode.getGrid().setScaleY(globalScale.y);
 
                 if (viewPane.getChildren().size() > 0) {
                     FXHashMapNode prev = mapList.getLast();
-                    newNode.setLayoutX(prev.getLayoutX() + (prev.grid.getWidth() + OFFSET) * globalScale.x);
+                    newNode.setLayoutX(prev.getLayoutX() + (prev.getGridWidth() + OFFSET) * globalScale.x);
                     newNode.setLayoutY(prev.getLayoutY());
                     bindNodes(prev, newNode);
                 } else {
@@ -227,10 +238,10 @@ public class BorderPaneController {
     }
 
     private void bindNodes(FXHashMapNode prev, FXHashMapNode next) {
-        prev.line.setStartX(prev.grid.getWidth()  * (prev.grid.getScaleX() / 2.0 + 0.5));
-        prev.line.setStartY(prev.grid.getHeight() * (prev.grid.getScaleY() / 2.0 + 0.5));
-        prev.line.setEndX(next.getLayoutX() - prev.getLayoutX() + next.grid.getWidth()  * (-next.grid.getScaleX() / 2.0 + 0.5));
-        prev.line.setEndY(next.getLayoutY() - prev.getLayoutY() + next.grid.getHeight() * (-next.grid.getScaleX() / 2.0 + 0.5));
+        prev.getLine().setStartX(prev.getGridWidth()  * (prev.getGrid().getScaleX() / 2.0 + 0.5));
+        prev.getLine().setStartY(prev.getGridHeight() * (prev.getGrid().getScaleY() / 2.0 + 0.5));
+        prev.getLine().setEndX(next.getLayoutX() - prev.getLayoutX() + next.getGridWidth()  * (-next.getGrid().getScaleX() / 2.0 + 0.5));
+        prev.getLine().setEndY(next.getLayoutY() - prev.getLayoutY() + next.getGridHeight() * (-next.getGrid().getScaleX() / 2.0 + 0.5));
     }
 
     private void moveNode(FXHashMapNode node, double dx, double dy){
@@ -238,13 +249,24 @@ public class BorderPaneController {
         node.setLayoutY(node.getLayoutY() + dy);
     }
 
+    private void moveNodeToMapListBack(FXHashMapNode node){
+        removeNodeFromMapList(node);
+        bindNodes(mapList.getLast(), node);
+        mapList.add(node);
+        node.resetLine();
+    }
+
     private void removeNodeFromMapList(FXHashMapNode node) {
         int index = mapList.indexOf(node);
-        if (index > 0 && index < mapList.size() - 1) {
+        if (index > 0 ) {
             FXHashMapNode prev = mapList.get(index - 1);
+            if(index < mapList.size() - 1){
+                bindNodes(prev, mapList.get(index + 1));
+            } else {
+                prev.getLine().setEndX(prev.getLine().getStartX());
+                prev.getLine().setEndY(prev.getLine().getStartY());
+            }
 
-            prev.line.setEndX(prev.line.getEndX() + node.line.getEndX());
-            prev.line.setEndY(prev.line.getEndY() + node.line.getEndY());
         }
 
         mapList.remove(node);
@@ -279,9 +301,11 @@ public class BorderPaneController {
 
     public void onViewPaneMousePressed(MouseEvent mouseEvent) {
         for (FXHashMapNode node : mapList) {
-            double pointX = (mouseEvent.getX() - (node.getLayoutX() + node.grid.getWidth()  / 2.0)) / globalScale.x + node.grid.getWidth()  / 2.0;
-            double pointY = (mouseEvent.getY() - (node.getLayoutY() + node.grid.getHeight() / 2.0)) / globalScale.y + node.grid.getHeight() / 2.0;
-            if (node.grid.contains(pointX, pointY)) {
+            double pointX = (mouseEvent.getX() - (node.getLayoutX() + node.getGridWidth()  / 2.0))
+                    / globalScale.x + node.getGridWidth()  / 2.0;
+            double pointY = (mouseEvent.getY() - (node.getLayoutY() + node.getGridHeight() / 2.0))
+                    / globalScale.y + node.getGridHeight() / 2.0;
+            if (node.getGrid().contains(pointX, pointY)) {
                 pickedNode = node;
                 pickedNode.toFront();
             }
@@ -304,8 +328,8 @@ public class BorderPaneController {
 
         for (int index = 0; index < mapList.size(); index++) {
             FXHashMapNode node = mapList.get(index);
-            node.grid.setScaleX(node.grid.getScaleX() * scaleFactor);
-            node.grid.setScaleY(node.grid.getScaleY() * scaleFactor);
+            node.getGrid().setScaleX(node.getGrid().getScaleX() * scaleFactor);
+            node.getGrid().setScaleY(node.getGrid().getScaleY() * scaleFactor);
 
             double xMove = node.getLayoutX() - scrollEvent.getX();
             double yMove = node.getLayoutY() - scrollEvent.getY();

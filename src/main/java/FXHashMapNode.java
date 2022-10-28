@@ -7,10 +7,11 @@ import javafx.scene.shape.Line;
 
 public class FXHashMapNode extends Pane {
 
-    public GridPane grid;
-    public Label key;
-    public Label value;
-    public Line line;
+    private final int width = 200, height = 70;
+    private GridPane grid;
+    private Label key;
+    private Label value;
+    private Line line;
 
     public FXHashMapNode() {
         super();
@@ -20,16 +21,39 @@ public class FXHashMapNode extends Pane {
         value = new Label();
 
         grid.setGridLinesVisible(true);
-        grid.getColumnConstraints().add(new ColumnConstraints(100));
-        grid.getColumnConstraints().add(new ColumnConstraints(100));
-        grid.getRowConstraints().add(new RowConstraints(70));
+        grid.getColumnConstraints().add(new ColumnConstraints(width / 2.f));
+        grid.getColumnConstraints().add(new ColumnConstraints(width / 2.f));
+        grid.getRowConstraints().add(new RowConstraints(height));
 
         grid.setStyle("-fx-background-color: #ebcb8b; -fx-font-size: 18");
         grid.add(key, 0, 0);
         grid.add(value, 1, 0);
 
         getChildren().addAll(line, grid);
-        setMaxSize(100, 100);
+        setMaxSize(100, 70);
+    }
+
+    public int getGridWidth() {
+        return width;
+    }
+
+    public int getGridHeight() {
+        return height;
+    }
+
+    public GridPane getGrid() {
+        return grid;
+    }
+
+    public Label getKey() {
+        return key;
+    }
+
+    public Label getValue() {
+        return value;
+    }
+    public Line getLine() {
+        return line;
     }
 
     public void resetLine(){
