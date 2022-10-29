@@ -12,7 +12,7 @@ public class Afina extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("afina.fxml"));
         primaryStage.getIcons().add(new Image(String.valueOf(getClass().getResource("icon.png"))));
         primaryStage.setTitle("Afina");
-        primaryStage.setScene(new Scene(root, 1366, 768));
+        primaryStage.setScene(new Scene(root, 1200, 600));
         primaryStage.show();
     }
 

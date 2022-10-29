@@ -25,3 +25,7 @@
 .clear-button {
     -fx-background-color: #b48ead;
 }
+
+.checkbox {
+    -fx-background-radius: 10px;
+}
