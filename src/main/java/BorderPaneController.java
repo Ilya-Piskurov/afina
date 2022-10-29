@@ -111,6 +111,8 @@ public class BorderPaneController {
 
         String key = removeKey.getText();
 
+        removeKey.clear();
+
         if (key.equals("")) {
             showDialog(
                     Alert.AlertType.ERROR,
@@ -122,6 +124,12 @@ public class BorderPaneController {
         }
 
         if (hashMap.remove(key) == null) {
+            showDialog(
+                    Alert.AlertType.INFORMATION,
+                    "Info",
+                    "Ooops, there was a non-existent key!!",
+                    "You cannot remove a non-existent key."
+            );
             return;
         }
 
@@ -132,14 +140,15 @@ public class BorderPaneController {
                 break;
             }
         }
-
-        removeKey.clear();
     }
 
     public void handleMouseClickedReplaceButton(MouseEvent mouseEvent) {
 
         String key   = replaceKey.getText();
         String value = replaceValue.getText();
+
+        replaceKey.clear();
+        replaceValue.clear();
 
         if (key.equals("") || value.equals("")) {
             showDialog(
@@ -172,9 +181,6 @@ public class BorderPaneController {
                 break;
             }
         }
-
-        replaceKey.clear();
-        replaceValue.clear();
     }
 
     public void handleMouseClickedClearButton(MouseEvent mouseEvent) {
@@ -184,6 +190,16 @@ public class BorderPaneController {
     }
 
     public void handleMouseClickedSaveButton(MouseEvent mouseEvent) {
+
+        if (hashMap.isEmpty()) {
+            showDialog(
+                    Alert.AlertType.INFORMATION,
+                    "Info",
+                    "HashMap is empty!",
+                    "Cannot save empty HashMap!"
+            );
+            return;
+        }
 
         try {
             FileWriter saveFile = new FileWriter("saved.txt");
@@ -213,19 +229,11 @@ public class BorderPaneController {
 
     public void handleMouseClickedLoadButton(MouseEvent mouseEvent) {
 
-        if (hashMap.isEmpty()) {
-            showDialog(
-                    Alert.AlertType.INFORMATION,
-                    "Info",
-                    "HashMap is empty!",
-                    "Cannot save empty HashMap!"
-            );
-            return;
-        }
-
         handleMouseClickedClearButton(mouseEvent);
 
         final double OFFSET = 30.f;
+
+        hashMap.clear();
 
         try {
             Scanner saveFile = new Scanner(new FileReader("saved.txt"));
