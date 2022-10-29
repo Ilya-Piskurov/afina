@@ -16,9 +16,11 @@ public class FXHashMapNode extends Pane {
     public FXHashMapNode() {
         super();
         grid  = new GridPane();
-        line  = new Line();
+        line = new Line();
         key   = new Label();
         value = new Label();
+
+        line.setVisible(false);
 
         grid.setGridLinesVisible(true);
         grid.getColumnConstraints().add(new ColumnConstraints(width / 2.f));
@@ -52,6 +54,7 @@ public class FXHashMapNode extends Pane {
     public Label getValue() {
         return value;
     }
+
     public Line getLine() {
         return line;
     }

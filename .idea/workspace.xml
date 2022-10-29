@@ -10,11 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="409257e8-22c3-40ab-9003-42aed2193bf1" name="Default Changelist" comment="ViewTest">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BorderPaneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BorderPaneController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/FXHashMapNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FXHashMapNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/afina.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/afina.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,6 +137,7 @@
       <workItem from="1666476593027" duration="549000" />
       <workItem from="1666625105852" duration="328000" />
       <workItem from="1666633798795" duration="341000" />
+      <workItem from="1667030630468" duration="2136000" />
     </task>
     <task id="LOCAL-00001" summary="Complete UI part.">
       <created>1664565324937</created>
@@ -189,7 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666972878261</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="ViewTest">
+      <created>1666995756692</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1666995756692</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,10 +216,10 @@
     <MESSAGE value="Complete UI part." />
     <MESSAGE value="Add main class." />
     <MESSAGE value="Add MANIFEST.MF" />
-    <MESSAGE value="ViewTest" />
     <MESSAGE value="Скерстив наші проекти. Треба виправляти баги." />
     <MESSAGE value="Виправив завантаження." />
     <MESSAGE value="Додав місце для чекбоксу" />
-    <option name="LAST_COMMIT_MESSAGE" value="Додав місце для чекбоксу" />
+    <MESSAGE value="ViewTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="ViewTest" />
   </component>
 </project>

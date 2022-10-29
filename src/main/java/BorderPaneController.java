@@ -189,6 +189,8 @@ public class BorderPaneController {
 
     public void handleMouseClickedLoadButton(MouseEvent mouseEvent) {
 
+        handleMouseClickedClearButton(mouseEvent);
+
         final double OFFSET = 30.f;
 
         try {
@@ -238,6 +240,7 @@ public class BorderPaneController {
     }
 
     private void bindNodes(FXHashMapNode prev, FXHashMapNode next) {
+        prev.getLine().setVisible(true);
         prev.getLine().setStartX(prev.getGridWidth()  * (prev.getGrid().getScaleX() / 2.0 + 0.5));
         prev.getLine().setStartY(prev.getGridHeight() * (prev.getGrid().getScaleY() / 2.0 + 0.5));
         prev.getLine().setEndX(next.getLayoutX() - prev.getLayoutX() + next.getGridWidth()  * (-next.getGrid().getScaleX() / 2.0 + 0.5));
@@ -263,8 +266,7 @@ public class BorderPaneController {
             if(index < mapList.size() - 1){
                 bindNodes(prev, mapList.get(index + 1));
             } else {
-                prev.getLine().setEndX(prev.getLine().getStartX());
-                prev.getLine().setEndY(prev.getLine().getStartY());
+                prev.getLine().setVisible(false);
             }
 
         }
@@ -300,6 +302,8 @@ public class BorderPaneController {
     }
 
     public void onViewPaneMousePressed(MouseEvent mouseEvent) {
+        if(!mouseEvent.isSecondaryButtonDown()) return;
+
         for (FXHashMapNode node : mapList) {
             double pointX = (mouseEvent.getX() - (node.getLayoutX() + node.getGridWidth()  / 2.0))
                     / globalScale.x + node.getGridWidth()  / 2.0;
