@@ -5,7 +5,6 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
 import java.io.FileNotFoundException;
@@ -62,7 +61,12 @@ public class BorderPaneController {
         String value = putValue.getText();
 
         if (key.equals("") || value.equals("")) {
-            showErrorDialogIfFieldsAreEmpty();
+            showDialog(
+                    Alert.AlertType.ERROR,
+                    "Error :<",
+                    "Ooops, there was an error!!",
+                    "Field 'Key' or 'Value' is empty!"
+            );
             return;
         }
 
@@ -108,7 +112,12 @@ public class BorderPaneController {
         String key = removeKey.getText();
 
         if (key.equals("")) {
-            showErrorDialogIfFieldsAreEmpty();
+            showDialog(
+                    Alert.AlertType.ERROR,
+                    "Error :<",
+                    "Ooops, there was an error!!",
+                    "Field 'Key' is empty!"
+            );
             return;
         }
 
@@ -133,21 +142,34 @@ public class BorderPaneController {
         String value = replaceValue.getText();
 
         if (key.equals("") || value.equals("")) {
-            showErrorDialogIfFieldsAreEmpty();
+            showDialog(
+                    Alert.AlertType.ERROR,
+                    "Error :<",
+                    "Ooops, there was an error!!",
+                    "Field 'Key' or 'Value' is empty!"
+            );
             return;
         }
 
-        if (hashMap.get(key) != null) {
-            hashMap.replace(key, value);
+        if (hashMap.get(key) == null) {
+            showDialog(
+                    Alert.AlertType.ERROR,
+                    "Error :<",
+                    "Ooops, there was an error!!",
+                    "You cannot replace a non-existent key."
+            );
+            return;
+        }
 
-            for (FXHashMapNode node: mapList) {
-                if (node.getKey().getText().equals(key)) {
-                    if(accessOrderCheck.isSelected()){
-                        moveNodeToMapListBack(node);
-                    }
-                    node.getValue().setText(value);
-                    break;
+        hashMap.replace(key, value);
+
+        for (FXHashMapNode node: mapList) {
+            if (node.getKey().getText().equals(key)) {
+                if (accessOrderCheck.isSelected()) {
+                    moveNodeToMapListBack(node);
                 }
+                node.getValue().setText(value);
+                break;
             }
         }
 
@@ -172,22 +194,34 @@ public class BorderPaneController {
 
             saveFile.close();
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Info");
-            alert.setHeaderText("File saved :>");
-            alert.setContentText("saved.txt created!");
-            alert.showAndWait();
+            showDialog(
+                    Alert.AlertType.INFORMATION,
+                    "Info",
+                    "File saved :>",
+                    "saved.txt created!"
+            );
 
         } catch (IOException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error :<");
-            alert.setHeaderText("Ooops, there was an error!!");
-            alert.setContentText("Cannot create saved.txt!");
-            alert.showAndWait();
+            showDialog(
+                    Alert.AlertType.ERROR,
+                    "Error :<",
+                    "Ooops, there was an error!!",
+                    "Cannot create saved.txt!"
+            );
         }
     }
 
     public void handleMouseClickedLoadButton(MouseEvent mouseEvent) {
+
+        if (hashMap.isEmpty()) {
+            showDialog(
+                    Alert.AlertType.INFORMATION,
+                    "Info",
+                    "HashMap is empty!",
+                    "Cannot save empty HashMap!"
+            );
+            return;
+        }
 
         handleMouseClickedClearButton(mouseEvent);
 
@@ -222,20 +256,21 @@ public class BorderPaneController {
             }
 
         } catch (FileNotFoundException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error :<");
-            alert.setHeaderText("Ooops, there was an error!!");
-            alert.setContentText("Saved file not found!");
-            alert.showAndWait();
+            showDialog(
+                    Alert.AlertType.ERROR,
+                    "Error :<",
+                    "Ooops, there was an error!!",
+                    "Saved file not found!"
+            );
         }
 
     }
 
-    public void showErrorDialogIfFieldsAreEmpty() {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error :<");
-        alert.setHeaderText("Ooops, there was an error!!");
-        alert.setContentText("Field 'Key' or 'Value' is empty!");
+    public void showDialog(Alert.AlertType type, String title, String headerText, String contentText) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(headerText);
+        alert.setContentText(contentText);
         alert.showAndWait();
     }
 
@@ -260,7 +295,9 @@ public class BorderPaneController {
     }
 
     private void removeNodeFromMapList(FXHashMapNode node) {
+
         int index = mapList.indexOf(node);
+
         if (index > 0 ) {
             FXHashMapNode prev = mapList.get(index - 1);
             if(index < mapList.size() - 1){
@@ -275,6 +312,7 @@ public class BorderPaneController {
     }
 
     public void onViewPaneMouseDragged(MouseEvent mouseEvent) {
+
         if (pickedNode != null) {
             moveNode(pickedNode, mouseEvent.getX() - mousePreviousPos.x, mouseEvent.getY() - mousePreviousPos.y);
 
@@ -341,7 +379,7 @@ public class BorderPaneController {
             node.setLayoutX(scrollEvent.getX() + xMove * scaleFactor);
             node.setLayoutY(scrollEvent.getY() + yMove * scaleFactor);
 
-            if(index > 0){
+            if (index > 0)  {
                 bindNodes(mapList.get(index - 1), node);
             }
 
