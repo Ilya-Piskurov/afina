@@ -5,6 +5,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.shape.Line;
 
+/**
+ * Клас, що представляє собою відображення пари ключ-значення
+ * у додатку.
+ */
 public class FXHashMapNode extends Pane {
 
     private final int width = 200, height = 70;
@@ -13,6 +17,9 @@ public class FXHashMapNode extends Pane {
     private Label value;
     private Line line;
 
+    /**
+     * Констуктор, що задає базові налаштування, наприклад, розмір, стиль, тощо
+     */
     public FXHashMapNode() {
         super();
         grid  = new GridPane();

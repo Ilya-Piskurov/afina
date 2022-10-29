@@ -15,7 +15,17 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.Scanner;
 
+/**
+ * Клас, що представляє собою контроллер. Тобто такий клас, логіку якого
+ * використовує елемент заданий у .fxml файлі.
+ */
 public class BorderPaneController {
+
+    /*
+    Ці змінні зберігають у собі елементи, які є дочірніми для елементу,
+    контроллером якого є цей клас. Це дозволить нам взаємодіяти з ними.
+    Наприклад, читати текст з TextBox, тощо.
+     */
 
     public Button putButton;
     public Button removeButton;
@@ -34,17 +44,28 @@ public class BorderPaneController {
 
     public Pane viewPane;
 
+    // Змінна, що збергіє відображення пари ключ-значення (далі: нода) з якої йде взаємодія.
     private FXHashMapNode pickedNode;
+    // Змінна, що зберігає попередню позицію мишки.
     private Vec2 mousePreviousPos;
+    // Змінна, що зберігає значення global scale.
     private Vec2 globalScale;
+    // Хешмапа, яка зберігає пари ключ-значення.
     private final LinkedHashMap<String, String> hashMap = new LinkedHashMap<>();
+    // Список, що зберігає всі ноди.
     private final LinkedList<FXHashMapNode> mapList = new LinkedList<>();
 
+    /**
+     * Клас, що дозволяє описувати координати, двомірний вектор, тощо.
+     */
     public static class Vec2 {
         public double x;
         public double y;
     }
 
+    /**
+     * Метод ініціалізації деяких значення для додатку.
+     */
     public void initialize() {
         globalScale = new Vec2();
         globalScale.x = 1;
@@ -53,6 +74,12 @@ public class BorderPaneController {
         viewPane.toBack();
     }
 
+    /**
+     * Метод, що обробляє подію натискання на кнопку "Put".
+     * Додає пару ключ-значення у хешмапу.
+     * Обробляє можливі помилки, якщо поле "key" або/та "value" пусті.
+     * @param mouseEvent - об'єкт, який зберігає подію мишки.
+     */
     public void handleMouseClickedPutButton(MouseEvent mouseEvent) {
 
         final double OFFSET = 30.f;
@@ -107,6 +134,12 @@ public class BorderPaneController {
         putValue.clear();
     }
 
+    /**
+     * Метод, що обробляє подію натискання кнопки "Remove".
+     * Видаляє пару ключ-значення з хешмапи.
+     * Обробляє помилик, якщо поля пусті, або такого ключа немає у хешмапі.
+     * @param mouseEvent - об'єкт, який зберігає подію мишки.
+     */
     public void handleMouseClickedRemoveButton(MouseEvent mouseEvent) {
 
         String key = removeKey.getText();
@@ -142,6 +175,13 @@ public class BorderPaneController {
         }
     }
 
+    /**
+     * Метод, що обробляє подію натискання на кнопку "Replace".
+     * Замінює значення з ключом "key" (якщо воно є) на "value".
+     * Обробляє помилки, якщо поля пусті, а також якщо пара з ключом
+     * "key" не існує.
+     * @param mouseEvent - об'єкт, який зберігає подію мишки.
+     */
     public void handleMouseClickedReplaceButton(MouseEvent mouseEvent) {
 
         String key   = replaceKey.getText();
@@ -183,12 +223,22 @@ public class BorderPaneController {
         }
     }
 
+    /**
+     * Метод, що обробляє подію натискання на кнопку "Clear".
+     * Видаляє всі елементи хешмапи та ноди відображення.
+     * @param mouseEvent - об'єкт, який зберігає подію мишки.
+     */
     public void handleMouseClickedClearButton(MouseEvent mouseEvent) {
         mapList.clear();
         hashMap.clear();
         viewPane.getChildren().clear();
     }
 
+    /**
+     * Метод, який обробляє подію натискання на кнопку "Save".
+     * Зберігає хешмапу до файла saved.txt, якщо хешмапа не пуста.
+     * @param mouseEvent - об'єкт, який зберігає подію мишки.
+     */
     public void handleMouseClickedSaveButton(MouseEvent mouseEvent) {
 
         if (hashMap.isEmpty()) {
@@ -227,6 +277,11 @@ public class BorderPaneController {
         }
     }
 
+    /**
+     * Метод, що обробляє подію натискання на кнопку "Load".
+     * Завантажує хешмапу з файла saved.txt, якщо він існує.
+     * @param mouseEvent - об'єкт, який зберігає подію мишки.
+     */
     public void handleMouseClickedLoadButton(MouseEvent mouseEvent) {
 
         handleMouseClickedClearButton(mouseEvent);
@@ -274,7 +329,15 @@ public class BorderPaneController {
 
     }
 
-    public void showDialog(Alert.AlertType type, String title, String headerText, String contentText) {
+    /**
+     * Метод, що створює діалог з користувачом. Використовуємо для
+     * виводу певної інформації, помилок або попередженнь.
+     * @param type - тип діалогу (ERROR, INFORMATION, ...).
+     * @param title - заголовок.
+     * @param headerText - текст у розділі header.
+     * @param contentText - основний текст.
+     */
+    private void showDialog(Alert.AlertType type, String title, String headerText, String contentText) {
         Alert alert = new Alert(type);
         alert.setTitle(title);
         alert.setHeaderText(headerText);
@@ -282,6 +345,11 @@ public class BorderPaneController {
         alert.showAndWait();
     }
 
+    /**
+     * Метод, що пов'язує лінією дві ноди.
+     * @param prev - перша нода.
+     * @param next - друга нода.
+     */
     private void bindNodes(FXHashMapNode prev, FXHashMapNode next) {
         prev.getLine().setVisible(true);
         prev.getLine().setStartX(prev.getGridWidth()  * (prev.getGrid().getScaleX() / 2.0 + 0.5));
@@ -290,11 +358,21 @@ public class BorderPaneController {
         prev.getLine().setEndY(next.getLayoutY() - prev.getLayoutY() + next.getGridHeight() * (-next.getGrid().getScaleX() / 2.0 + 0.5));
     }
 
+    /**
+     * Метод, для переміщення ноди.
+     * @param node - нода для переміщення.
+     * @param dx - координата х.
+     * @param dy - координата у.
+     */
     private void moveNode(FXHashMapNode node, double dx, double dy){
         node.setLayoutX(node.getLayoutX() + dx);
         node.setLayoutY(node.getLayoutY() + dy);
     }
 
+    /**
+     * Метод, що рухає ноду у списку. Потрібно для Access Order.
+     * @param node - нода для переміщення.
+     */
     private void moveNodeToMapListBack(FXHashMapNode node){
         removeNodeFromMapList(node);
         bindNodes(mapList.getLast(), node);
@@ -302,6 +380,10 @@ public class BorderPaneController {
         node.resetLine();
     }
 
+    /**
+     * Метод, що видаляє ноду.
+     * @param node - нода для видалення.
+     */
     private void removeNodeFromMapList(FXHashMapNode node) {
 
         int index = mapList.indexOf(node);
@@ -319,6 +401,10 @@ public class BorderPaneController {
         mapList.remove(node);
     }
 
+    /**
+     * Метод, що обробляє рух миші з натисненою кнопкою на панелі ViewPane.
+     * @param mouseEvent - об'єкт, який зберігає подію мишки.
+     */
     public void onViewPaneMouseDragged(MouseEvent mouseEvent) {
 
         if (pickedNode != null) {
@@ -342,13 +428,22 @@ public class BorderPaneController {
         mousePreviousPos.y = mouseEvent.getY();
     }
 
+    /**
+     * Метод, що обробляє рух мишки на панелі ViewPane.
+     * @param mouseEvent - об'єкт, який зберігає подію мишки.
+     */
     public void onViewPaneMouseMoved(MouseEvent mouseEvent) {
         mousePreviousPos.x = mouseEvent.getX();
         mousePreviousPos.y = mouseEvent.getY();
     }
 
+    /**
+     * Метод, що обробляє подію натискання кнопки миши на панелі ViewPane.
+     * @param mouseEvent - об'єкт, який зберігає подію мишки.
+     */
     public void onViewPaneMousePressed(MouseEvent mouseEvent) {
-        if(!mouseEvent.isSecondaryButtonDown()) return;
+
+        if (!mouseEvent.isSecondaryButtonDown()) return;
 
         for (FXHashMapNode node : mapList) {
             double pointX = (mouseEvent.getX() - (node.getLayoutX() + node.getGridWidth()  / 2.0))
@@ -365,10 +460,19 @@ public class BorderPaneController {
         mousePreviousPos.y = mouseEvent.getY();
     }
 
+    /**
+     * Метод, що обробляє подію відпускання кнопки мишки на панелі ViewPane.
+     * @param mouseEvent - об'єкт, який зберігає подію мишки.
+     */
     public void onViewPaneMouseReleased(MouseEvent mouseEvent) {
         pickedNode = null;
     }
 
+    /**
+     * Метод, що обробляє подію скроллу (пролистування, середня кнопка мишки)
+     * на панелі ViewPane.
+     * @param scrollEvent - об'єкт, який зберігає подію мишки.
+     */
     public void onViewPaneMouseScroll(ScrollEvent scrollEvent) {
 
         double scaleFactor = scrollEvent.getDeltaY() > 0 ? 1.05 : 0.95;
